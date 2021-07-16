@@ -13,6 +13,9 @@ authorAvatar: 'https://avatars3.githubusercontent.com/u/8954908?v=4&s=140'
 
 This example demonstrates how to setup a [RESTful Web Services](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services) allowing you to create, list, get, update and delete Todos. DynamoDB is used to store the data. This is just an example and of course you could use any data storage as a backend.
 
+Documentacion at
+https://documenter.getpostman.com/view/724536/TzmCgCYQ
+
 ## Structure
 
 This service has a separate directory for all the todo operations. For each operation exactly one file exists e.g. `todos/delete.js`. In each of these files there is exactly one function which is directly attached to `module.exports`.
