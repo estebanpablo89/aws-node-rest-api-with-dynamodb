@@ -1,14 +1,13 @@
 service: aws-node-rest-api-with-dynamodb
 
-frameworkVersion: '>=1.1.0 <2.0.0'
-
 provider:
   name: aws
   runtime: nodejs10.x
   region: us-east-2
+  stage: ${opt:stage, 'dev'}
   profile: serverless-admin
   environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    DYNAMODB_TABLE: ${self:custom.DynamodbTable.name}
   iam:
     role:
       statements:
@@ -79,3 +78,7 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
+
+custom:
+  DynamodbTable:
+    name: DynamodbTable-${self:provider.stage}
