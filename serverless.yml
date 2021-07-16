@@ -7,7 +7,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   profile: serverless-admin
   environment:
-    DYNAMODB_TABLE: ${self:custom.DynamodbTable.name}
+    DYNAMODB_TABLE: ${self:custom.DynamoTableTodos.name}
   iam:
     role:
       statements:
@@ -80,5 +80,5 @@ resources:
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
 
 custom:
-  DynamodbTable:
-    name: DynamodbTable-${self:provider.stage}
+  DynamoTableTodos:
+    name: DynamoTableTodos-${self:provider.stage}
